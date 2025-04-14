@@ -1,0 +1,4 @@
+user_id,created_at,items,total,payment_status,payment_method,payment_date,shipping_status,shipping_status_date_awaitin
+g_payment,shipping_status_date_preparing,shipping_status_date_sent,shipping_status_date_deliver
+ed
+1,2018-01-01,1,100.90,paid,credit_card,2018-01-01,preparing,2018-01-01,2018-01-01,2018-01-01,2018-01-01
