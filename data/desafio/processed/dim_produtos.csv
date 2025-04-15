@@ -1,6 +1,0 @@
-product_id,name,price,stock,created_at,description
-101,Wireless Mouse,25.99,150,2025-04-01,A high-precision wireless mouse with ergonomic design
-102,Mechanical Keyboard,79.99,80,2025-04-02,Durable mechanical keyboard with customizable backlight
-103,Gaming Monitor,229.5,45,2025-04-03,27-inch gaming monitor with ultra-high refresh rate
-104,Bluetooth Speaker,39.99,120,2025-04-04,Portable bluetooth speaker with deep bass and long battery life
-105,Usb-C Charger,15.0,200,2025-04-05,"Fast charging usb-c wall charger, compact and lightweight"
