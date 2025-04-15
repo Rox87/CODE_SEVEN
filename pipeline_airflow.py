@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from steps import validate_clean_email_series, validate_clean_cpf_series
+from steps.b_clean_trasform import validate_clean_email_series, validate_clean_cpf_series
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 import pandas as pd
@@ -23,7 +23,7 @@ def process_user_data(**kwargs):
     """Process and clean user data"""
     # In a real scenario, you would read from a file or database
     # For this example, we'll assume the file exists in a data directory
-    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'desafio', 'raw')
+    data_dir = os.path.join('data', 'desafio', 'raw')
     user_file_path = os.path.join(data_dir, 'user_raw.csv')
     
     # Read the user data
@@ -36,7 +36,7 @@ def process_user_data(**kwargs):
     user_raw['cpf'] = validate_clean_cpf_series(user_raw['cpf'])
     
     # Save processed data
-    processed_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'desafio', 'processed')
+    processed_dir = os.path.join('data', 'desafio', 'processed')
     os.makedirs(processed_dir, exist_ok=True)
     user_raw.to_csv(os.path.join(processed_dir, 'user_processed.csv'), index=False)
     
@@ -44,7 +44,7 @@ def process_user_data(**kwargs):
 
 def process_product_data(**kwargs):
     """Process and clean product data"""
-    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'desafio', 'raw')
+    data_dir = os.path.join('data', 'desafio', 'raw')
     product_file_path = os.path.join(data_dir, 'produtos_raw.csv')
     
     # Read the product data
@@ -56,7 +56,7 @@ def process_product_data(**kwargs):
     produtos_raw['description'] = produtos_raw['description'].str.capitalize()
     
     # Save processed data
-    processed_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'desafio', 'processed')
+    processed_dir = os.path.join('data', 'desafio', 'processed')
     os.makedirs(processed_dir, exist_ok=True)
     produtos_raw.to_csv(os.path.join(processed_dir, 'produtos_processed.csv'), index=False)
     
@@ -64,7 +64,7 @@ def process_product_data(**kwargs):
 
 def process_order_data(**kwargs):
     """Process and clean order data"""
-    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'desafio', 'raw')
+    data_dir = os.path.join('data', 'desafio', 'raw')
     order_file_path = os.path.join(data_dir, 'pedidos_raw.csv')
     
     # Read the order data
@@ -77,7 +77,7 @@ def process_order_data(**kwargs):
         pedidos_raw[col] = pd.to_datetime(pedidos_raw[col], errors='coerce')
     
     # Save processed data
-    processed_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'desafio', 'processed')
+    processed_dir = os.path.join('data', 'desafio', 'processed')
     os.makedirs(processed_dir, exist_ok=True)
     pedidos_raw.to_csv(os.path.join(processed_dir, 'pedidos_processed.csv'), index=False)
     
@@ -85,7 +85,7 @@ def process_order_data(**kwargs):
 
 def generate_reports(**kwargs):
     """Generate business reports from processed data"""
-    processed_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'desafio', 'processed')
+    processed_dir = os.path.join('data', 'desafio', 'processed')
     
     # Load processed data
     users = pd.read_csv(os.path.join(processed_dir, 'user_processed.csv'))
@@ -106,7 +106,7 @@ def generate_reports(**kwargs):
     orders_by_status = orders.groupby('shipping_status').size().reset_index(name='count')
     
     # Save reports
-    reports_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'desafio', 'reports')
+    reports_dir = os.path.join('data', 'desafio', 'reports')
     os.makedirs(reports_dir, exist_ok=True)
     
     orders_by_month.to_csv(os.path.join(reports_dir, 'orders_by_month.csv'), index=False)

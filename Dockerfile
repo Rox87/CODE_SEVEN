@@ -12,8 +12,11 @@ RUN chown -R airflow: ${AIRFLOW_HOME}
 # Expose ports for the webserver
 EXPOSE 8080
 
+# Copy Requirements file
+COPY requirements.txt requirements.txt
+
 # Install additional Python packages if needed
-RUN pip install --no-cache-dir pandas numpy
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy DAG file and helper modules
 COPY seven_airflow_etl_dag.py ${AIRFLOW_HOME}/dags/

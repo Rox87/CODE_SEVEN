@@ -1,5 +1,6 @@
 import re
 import pandas as pd
+from io import StringIO
 
 # Função para validar e-mails em uma pandas Series
 def validate_clean_email_series(emails_series):
@@ -23,18 +24,18 @@ def validate_clean_cpf_series(cpf_series):
 
     return cpf_series
 
+# Removing the test code that was causing the error
+# user_string_raw = StringIO(dict_files_contents['user_raw.csv'])
+# user_raw = pd.read_csv(user_string_raw,sep=",",encoding="utf-8")
+# user_raw.dropna(inplace=True)
 
-user_string_raw = StringIO(dict_files_contents['user_raw.csv'])
-user_raw = pd.read_csv(user_string_raw,sep=",",encoding="utf-8")
-user_raw.dropna(inplace=True)
+# # Padronizar o nome com as primeiras letras maiúsculas
+# user_raw['name'] = user_raw['name'].str.title()
 
-# Padronizar o nome com as primeiras letras maiúsculas
-user_raw['name'] = user_raw['name'].str.title()
+# # Padronizar os e-mails: letras minúsculas e remover espaços
+# user_raw['e-mail'] = validate_clean_email_series(user_raw['e-mail'])
 
-# Padronizar os e-mails: letras minúsculas e remover espaços
-user_raw['e-mail'] = validate_clean_email_series(user_raw['e-mail'])
+# # Padronizar e filtrar "cpf"
+# user_raw['cpf'] = validate_clean_cpf_series(user_raw['cpf'])
 
-# Padronizar e filtrar "cpf"
-user_raw['cpf'] = validate_clean_cpf_series(user_raw['cpf'])
-
-print(user_raw)
+# print(user_raw)
