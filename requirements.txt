@@ -1,0 +1,4 @@
+dbt-core
+pytest
+pandas
+azure-storage-file-datalake

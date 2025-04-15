@@ -1,0 +1,5 @@
+user_id,created_at,items,total,payment_status,payment_method,payment_date,shipping_status,shipping_status_date_awaiting_payment,shipping_status_date_preparing,shipping_status_date_sent,shipping_status_date_delivered
+1001,2025-04-01 10:45,"Laptop, Mouse",1200.00,Paid,Credit Card,2025-04-01 11:00,Delivered,2025-04-01 10:45,2025-04-01 12:30,2025-04-02 09:00,2025-04-03 15:20
+1002,2025-04-02 14:30,"Headphones",150.00,Awaiting,PayPal,,Preparing,2025-04-02 14:30,2025-04-02 18:00,2025-04-02 10:00,2025-04-03 15:20 
+1003,2025-04-03 08:15,"Monitor, Keyboard",450.00,Paid,Debit Card,2025-04-03 08:30,Sent,2025-04-03 08:15,2025-04-03 10:00,2025-04-03 14:45,2025-04-03 15:20
+1004,2025-04-04 09:50,"Smartphone",950.00,Paid,Apple Pay,2025-04-04 10:00,Awaiting,2025-04-04 09:50,2025-04-03 10:00,2025-04-05 10:00,2025-04-03 15:20 
