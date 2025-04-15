@@ -1,0 +1,6 @@
+user_id,name,entry_date,entry_time,update_date,e-mail,cpf
+1001,"Carlos Silva",2025-04-01,09:45,2025-04-05,"carlos.silva@example.com","123.456.789-00"
+1002,"Ana Oliveira",2025-04-02,14:30,2025-04-06,"ana.oliveira@example.com","987.654.321-00"
+1003,"Marcos Souza",2025-04-03,08:15,2025-04-07,"marcos.souza@example.com","111.222.333-44"
+1004,"Juliana Santos",2025-04-04,11:50,2025-04-08,"juliana.santos@example.com","555.666.777-88"
+1005,"Fernanda Costa",2025-04-05,16:20,2025-04-09,"fernanda.costa@example.com","999.888.777-66"
